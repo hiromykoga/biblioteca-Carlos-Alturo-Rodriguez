@@ -1,0 +1,34 @@
+﻿CREATE SEQUENCE public.secuencia_id_libros
+		START WITH 1
+                INCREMENT BY 1;
+                
+CREATE SEQUENCE public.secuencia_id_prestamos
+		START WITH 1
+                INCREMENT BY 1;
+
+CREATE TABLE public.libros(lib_id SERIAL PRIMARY KEY, lib_titulo CHARACTER VARYING(100),
+                             lib_autores CHARACTER VARYING(100), lib_editorial CHARACTER VARYING(50),
+                             lib_codigo_isbn CHARACTER VARYING(100), lib_cantidad INTEGER,
+                             lib_color_cinta CHARACTER VARYING(20), lib_color_rotulo CHARACTER VARYING(20),
+                             lib_clave_coleccion CHARACTER VARYING(20), lib_clave_autor CHARACTER VARYING(20));
+                             
+CREATE TABLE public.prestamos(pres_id SERUAL PRIMARY KEY, pres_fecha_entrega TIMESTAMP,
+                               pres_fecha_devolucion TIMESTAMP, pres_nombre_profesor CHARACTER VARYING(20),
+                               pres_nombre_alumno CHARACTER VARYING(20), pres_grado CHARACTER VARYING(10),
+                               pres_estado_libro CHARACTER VARYING(10), pres_descripcion_estado_libro CHARACTER VARYING(200),
+                               pres_titulo_libro CHARACTER VARYING(100), pres_codigo_isbn_libro CHARACTER VARYING(100));
+
+SELECT *FROM libros;
+SELECT *FROM prestamos;
+
+INSERT INTO libros(lib_titulo, lib_autores, lib_editorial, lib_codigo_isbn, lib_cantidad,
+		   lib_color_cinta, lib_color_rotulo, lib_clave_coleccion,lib_clave_autor)
+                   VALUES('LA VUELTA AL MUNDO OCHENTA CUENTOS', 'Albert Jané', 'Perspectiva Editorial Cultura S.A.',
+                           '978-958-46-0834-5', 1, 'Amarillo', 'Verde', 'C', 'JAN1');
+
+
+
+
+
+
+
